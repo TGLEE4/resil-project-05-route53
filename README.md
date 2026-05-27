@@ -6,7 +6,7 @@ production-grade AWS infrastructure stack. The site is now served globally via
 CloudFront CDN, secured with a free ACM SSL certificate, and DNS is fully managed 
 by Route 53 — all provisioned with Terraform as Infrastructure as Code.
 
-**Live Site:** https://resiltechnologysolutions.com
+**Live Site:** https://tenglee.dev
 
 ---
 
@@ -32,7 +32,7 @@ by Route 53 — all provisioned with Terraform as Infrastructure as Code.
 
 ## Architecture
 
-User types resiltechnologysolutions.com
+User types tenglee.dev
 ↓
 Namecheap delegates DNS → Route 53 nameservers
 ↓
@@ -96,8 +96,8 @@ regardless of where other infrastructure lives. The alias lets us target that
 specific region just for the certificate resource.
 
 **Section 2 — ACM Certificate**
-Issued a free SSL/TLS certificate covering both `resiltechnologysolutions.com` and 
-`www.resiltechnologysolutions.com` using DNS validation. DNS validation was chosen 
+Issued a free SSL/TLS certificate covering both `tenglee.dev` and 
+`www.tenglee.dev` using DNS validation. DNS validation was chosen 
 over email validation because it integrates directly with Route 53 — Terraform 
 automatically creates the required validation DNS records without any manual steps.
 
@@ -148,7 +148,7 @@ for the domain from Namecheap to AWS Route 53. Propagation took approximately
 20-30 minutes to reach Google's DNS resolvers globally.
 
 ### Step 7 — Verified DNS propagation
-Used `nslookup resiltechnologysolutions.com 8.8.8.8` to query Google's DNS directly, 
+Used `nslookup tenglee.dev 8.8.8.8` to query Google's DNS directly, 
 bypassing local resolver cache. Waited until the response showed `awsdns` nameservers 
 before running full `terraform apply` — running apply before propagation causes ACM 
 to time out.
@@ -258,4 +258,4 @@ terraform destroy
 ---
 
 ## Live Site
-https://resiltechnologysolutions.com
+https://tenglee.dev

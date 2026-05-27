@@ -7,17 +7,17 @@ variable "aws_region" {
 variable "domain_name" {
   description = "Root domain name registered on Namecheap"
   type        = string
-  default     = "resiltechnologysolutions.com"
+  default     = "tenglee.dev"
 }
 
 variable "bucket_name" {
-  description = "S3 bucket name — must match domain name exactly for static hosting"
+  description = "S3 bucket name for static hosting"
   type        = string
-  default     = "resiltechnologysolutions.com"
+  default     = "tenglee.dev"
 }
 
 variable "www_bucket_name" {
   description = "S3 bucket for www subdomain redirect"
   type        = string
-  default     = "www.resiltechnologysolutions.com"
+  default     = "www.tenglee.dev"
 }
